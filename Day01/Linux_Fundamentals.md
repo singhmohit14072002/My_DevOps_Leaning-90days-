@@ -60,3 +60,52 @@ ls -a
 
 #### Search For Files 
 
+ - ``` find /usr/share/ -name '*.jpg ```  The find command in Linux is a dynamic utility designed for comprehensive file and directory searches within a hierarchical structure
+
+ - ``` find /lib64/ -size +10M ``` you upload the application and you want to know to what file change in the last time.
+
+-  ``` find -perm 664 ``` find files with exactly 664 permissions.
+
+- ``` sed 's/canda/canada/g' userinfo.txt ``` this command is use to search and replace text in a file in linux.
+
+
+- ``` cut -d ' ' -f 1 username.txt ``` cut command give what exactly we want to the file it will print the content. In this situation it only return the firt row of the content.
+
+- ``` uniq contries.txt ``` this command only return not repeated words in the file it will not print the duplicate words.
+
+
+- ``` diff -c file1 file2 ``` this command comapres  the files.
+
+- Pager is a computer program used to view (but not modify) the contents of a text file moving down the file one line or one screen at a time
+
+#### Search file using Grep 
+
+- ``` grep -i 'centos' /etc/os-release ``` Grep allows users to search files for a specific pattern or word and see which lines contain it.
+
+- ``` grep -r 'Centos' /etc/ ``` This commad search the all files in the given directory.
+
+#### Compression And Decompression 
+- ``` gzip file1 ``` command is use to compress the file .
+
+- For unzip the file use ``` gunzip  file.gz ``` command.
+
+-  ``` rsynce -a [local directory] username:[remote directory] ``` so this command is use to syncing two directories.
+
+#### Use Input-Output Redirection
+
+- output redirection simply add  greater than sign > in the end of the file and give it to the file where you want to add your output. ex: ```  sort file.txt > sortedfile.txt ``` this is called the output redirections .
+
+#### Working with SSL certificates
+
+- SSL stands for "secure socket layer" And Nowadays ssl is actually TLS: stand for "transport layer security".
+
+- What is SSL Certificates?
+
+#### Operations Deployment
+
+- ``` systemctl reboot ``` command is to use reboot the system. Also if this command not work use ``` sudo systemctl reboot --force ``` and to poweoff replace with reboot.
+
+
+#### Using Scripting To Automate Task
+
+- 
