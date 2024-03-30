@@ -108,4 +108,16 @@ ls -a
 
 #### Using Scripting To Automate Task
 
-- 
+#### Manage  the startup process and services
+
+-  To see the service file run command ``` systemctl cat sshd.service ``` and to edit the system file use commad ``` sudo systemctl edit --full sshd.service ``` .
+
+#### Diagnose and manage processes
+- ``` ps aux ``` command is use to show the current session runing process in the current terminal.
+
+- Signals:- are the interrupts that are sent to the program to specify that an important event has occurred. Events can vary from user requests to invalid memory access errors.
+
+- ``` sudo kill -SIGHUP <PID> ``` command to kill the running process.
+
+- ``` jobs  ``` command to see the background running process.
+
