@@ -121,3 +121,96 @@ ls -a
 
 - ``` jobs  ``` command to see the background running process.
 
+#### Locate and analyze system log files 
+
+- Everything important that happens on a linux system is saved as a text message somewhere in that are called logs. The linux kernal and most programs that run on it generate status messages ,eroor messages , warning and so on.
+
+- The job of logging daemons is to collect diffrent programs thea generate all these messages all the time is organize them nicely into file and store into logs. The applications that collect and organize and store logs is Rsyslog. Its name comes from a rocket-fast system for logs processing. Rsyslog stores, all logs in the /var/log/directory.
+
+- To check the current boot logs use the command is ``` journalctl -b 0  ```  for previous boot use -1 instead using 0 .
+
+- ``` lastlog ```  This command shows you each user on the system logged in the last time for remote logins. And to see a history  of who logged in  into the system, you can use the ``` last ``` command.
+
+
+#### Shedule tasks to run ar a set  date and time
+
+##### Scheduling Jobs With cron
+
+- To edit the crontab ues command ``` crontab -e ``` and to list the ``` crontab -l ``` .
+
+- To add the user in the crontab use command ``` sudo crontab -e -u jane ```  , and to remove the user crontab entirely, use the -r to remove the cron table of a diffrent user ``` sudo crontab -r -u <username> ```.
+
+- To set up cron jobs through the use of special directories. The directory for daily tasks, /etc/cron.daily/ , hourly = /etc/cron.hourly/ and similar to monthly and weekly.
+
+
+##### Scheduling Jobs With anacron
+
+- anacron command is used to execute commands periodically with a frequency specified in days. Its main advantage over cron is that it can be used on a machine which is not running continuously. In cron if a machine is not running on time of a scheduled job then it will skip it, but anacron is a bit different as it first checks for timestamp of the job then decides whether to run it or not and if its timestamp is >=n(n is defined number of days) then runs it after a specified time delay.
+
+
+##### Scheduling Jobs With at
+
+- The 'at' command fits into the Linux scheduling system as a tool for scheduling tasks to run at a specific time. It's a one-time scheduler, meaning it's designed to schedule tasks that will only run once, unlike the 'cron' command, which is designed for recurring tasks.
+
+-  example:   ``` at 15:00 ```
+
+
+#### Manage Software with the package manager 
+
+- APT. Advanced Package Tool, more commonly known as APT, is a package management system for Debian, Ubuntu, and other similar Linux distributions. ``` Example: sudo apt install nginx ``` . 
+
+
+##### Verify Key Resources and Processes 
+
+- To check how much disk space is availble use the command ``` df or df -h ```  to see specific directory space is suing use the command ``` du -sh <directory path> ```.
+
+- To see how much cpu use by the system use command `` uptime `` to see the specific use of the cpu use command ``` lscpu ``` and to see other hardware on the system use command ``` lspci ``` .
+
+- Use `` free  `` command to check the RAM.
+
+- To check the error of the filesystem use the commad ``` sudo xfs_repair <file-path> ``` .
+
+
+#### Change kernal runtime parameters, persistent and non-persistent
+
+##### Kernal Runtime Parameters
+
+- To see all Kernal runtime parameters currently in usem we can use  the ``` sysctl -a ``` command.
+
+- In this topic i learn how we can do the process non-persistant to persistant so if the kernal stop the process will continue running not stop.
+
+#### SELinux 
+
+- SELinux allow for very fine grained control if what action should be allowed or denied.
+
+- ``` id -Z ``` The id command in Linux is used mainly to identify the UID (User ID) and GID (Group ID) of a user account, including the groups a user belongs to.
+
+- To enable any kernal process use command ``` sysctl -w <process >```.
+
+
+##### Create and enforce MAC using SELinux
+
+-  Commands to install the SELinux in ubuntu because ubuntu do not have  selinux it have default apparmor so we have to remove aparmor first and intall selinux :- commands are 
+
+```
+
+-  sudo systemctl stop apparmor.service
+
+-  sudo systemctl disable  apparmor.service
+
+-  sudo apt install selinux-basics auditd
+
+- sestatus = to check the status the selinux 
+
+- to enable it run  [sudo selinux-activate]
+
+- sudo systemctl reboot (after reboot the system selinux enable) 
+
+```
+
+- So If the selinux is running on the permissive mode it is not enforcing security rules. its just observing every action on our system passively. So not deny and allow these potential security  violations in the audit log. So we have to install the Audit Daemon earlier. 
+
+
+
+
+
